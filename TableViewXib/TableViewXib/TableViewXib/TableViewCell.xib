@@ -16,25 +16,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vB-SI-8ea">
-                        <rect key="frame" x="5" y="5" width="310" height="34"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TSLA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vB-SI-8ea">
+                        <rect key="frame" x="5" y="5" width="125" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="125" id="mmz-hW-VKX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="849.20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1P-0V-aWC">
+                        <rect key="frame" x="140" y="5" width="175" height="34"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="1vB-SI-8ea" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="3ke-ef-kil"/>
-                    <constraint firstAttribute="trailing" secondItem="1vB-SI-8ea" secondAttribute="trailing" constant="5" id="Zps-tK-qgG"/>
-                    <constraint firstAttribute="bottom" secondItem="1vB-SI-8ea" secondAttribute="bottom" constant="5" id="oDV-uk-k6q"/>
-                    <constraint firstItem="1vB-SI-8ea" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="r80-iU-9aP"/>
+                    <constraint firstAttribute="bottom" secondItem="1vB-SI-8ea" secondAttribute="bottom" constant="5" id="CKI-mu-uX7"/>
+                    <constraint firstItem="1vB-SI-8ea" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="MWe-Um-xkH"/>
+                    <constraint firstAttribute="trailing" secondItem="V1P-0V-aWC" secondAttribute="trailing" constant="5" id="cLg-zd-ddO"/>
+                    <constraint firstItem="1vB-SI-8ea" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ejL-KV-trY"/>
+                    <constraint firstAttribute="bottom" secondItem="V1P-0V-aWC" secondAttribute="bottom" constant="5" id="fxZ-mN-H7f"/>
+                    <constraint firstItem="V1P-0V-aWC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="mYL-70-LvS"/>
+                    <constraint firstItem="V1P-0V-aWC" firstAttribute="leading" secondItem="1vB-SI-8ea" secondAttribute="trailing" constant="10" id="nNh-4Z-x1s"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="lblCity" destination="1vB-SI-8ea" id="xWn-vm-KJA"/>
+                <outlet property="lblStock" destination="1vB-SI-8ea" id="xWn-vm-KJA"/>
+                <outlet property="lblValue" destination="V1P-0V-aWC" id="BUr-Jx-ReF"/>
             </connections>
-            <point key="canvasLocation" x="36" y="127"/>
+            <point key="canvasLocation" x="34.782608695652179" y="126.5625"/>
         </tableViewCell>
     </objects>
 </document>

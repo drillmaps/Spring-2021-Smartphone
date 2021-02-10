@@ -9,7 +9,9 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    let cities = ["Seattle", "Portand", "SFO", "LA", "Diego", "NY", "Maimi", "Washington DC"]
+    let stock = ["FB", "AMZN", "AAPL", "NTFX", "GOOG", "MSFT", "TSLA"]
+    let values = ["269.45", "3,305.00", "136.01", "559.07", "2,083.51", "243.77", "849.46"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +20,14 @@ class TableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+        return stock.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-        
-        cell.lblCity.text = cities[indexPath.row]
+        cell.lblStock.text = stock[indexPath.row]
+        cell.lblValue.text = "$" +  values[indexPath.row]
 
         return cell
     }
