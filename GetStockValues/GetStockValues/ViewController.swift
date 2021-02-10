@@ -23,7 +23,10 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "Get Stock Price?", message: "Type in The Symbol", preferredStyle: .alert)
         
         let OK = UIAlertAction(title: "OK", style: .default) { (alertAction) in
-            print("OK")
+            
+            guard let stock = self.globalStockTxtField?.text else {return}
+            
+            self.getStockValue(stock)
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (alertAction) in
@@ -41,5 +44,14 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    func getStockValue(_ stockSymbol : String){
+        let url = getURL(stockSymbol)
+        
+    }
+    
+    func getURL(_ stockSymbol : String) -> String {
+        return apiURL + stockSymbol + "?apikey=" + apiKey
+    }
 }
 
