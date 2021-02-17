@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SwiftSpinner
+import RealmSwift
 
 class StocksTableViewController: UITableViewController {
 
@@ -22,6 +23,15 @@ class StocksTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        do{
+//            let _ = try Realm()
+//
+//        }catch{
+//            print("Error in initializing realm")
+//        }
+//
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,8 +104,14 @@ class StocksTableViewController: UITableViewController {
                     let symbol = stock["symbol"].stringValue
                     let price = stock["price"].floatValue
                     let volume = stock["volume"].intValue
+                    
+                    let stock = Stock()
+                    stock.symbol = symbol
+                    stock.price = price
+                    stock.volume = volume
 
-                    self.stockArr.append(Stock(symbol: symbol , price: price, volume: volume))
+
+                    self.stockArr.append(stock)
                 }
                 
                 self.tblStocks.reloadData()
@@ -117,6 +133,7 @@ class StocksTableViewController: UITableViewController {
             }
             
             self.symbolArr.append(stock)
+            self.addStockToDB()
             
             self.getData()
         }
@@ -134,6 +151,22 @@ class StocksTableViewController: UITableViewController {
         
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    func addStockToDB(){
+        do{
+            let realm = try Realm()
+            
+            try realm.write{
+                let stock = Stock()
+                stock.symbol = "MSFT"
+                stock.price = 242.34
+                stock.volume = 12324234
+                realm.add(stock)
+            }
+        }catch{
+            print("Error in initializing realm")
+        }
     }
     
     

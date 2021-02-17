@@ -6,15 +6,15 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Stock {
-    var symbol : String = ""
-    var price : Float = 0.0
-    var volume : Int = 0
+class Stock: Object {
+    @objc dynamic var symbol : String = ""
+    @objc dynamic var price : Float = 0.0
+    @objc dynamic var volume : Int = 0
     
-    init(symbol: String, price : Float, volume: Int) {
-        self.symbol = symbol
-        self.price = price
-        self.volume = volume
+    override static func primaryKey() -> String? {
+        return "symbol"
     }
+
 }
