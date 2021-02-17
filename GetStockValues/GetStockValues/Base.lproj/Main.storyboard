@@ -23,7 +23,7 @@
                                     <action selector="getStockAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n9v-aA-dQi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TSLA : $864.23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsU-h3-mVc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsU-h3-mVc">
                                 <rect key="frame" x="5" y="513" width="404" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Twc-EZ-1OA"/>

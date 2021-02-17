@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SwiftSpinner
 
 class ViewController: UIViewController {
 
@@ -15,22 +18,25 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func getStockAction(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Get Stock Price?", message: "Type in The Symbol", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Get Stock Price", message: "Type in The Symbol", preferredStyle: .alert)
         
         let OK = UIAlertAction(title: "OK", style: .default) { (alertAction) in
             
             guard let stock = self.globalStockTxtField?.text else {return}
             
+            if stock == "" {
+                return
+            }
+            
             self.getStockValue(stock)
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (alertAction) in
-            print("Cancel")
+            //print("Cancel")
         }
         
         alert.addTextField { (stockTxtField) in
@@ -46,7 +52,36 @@ class ViewController: UIViewController {
     
     
     func getStockValue(_ stockSymbol : String){
+        
+        
         let url = getURL(stockSymbol)
+        
+        
+        SwiftSpinner.show("Getting \(stockSymbol) Stock Value")
+        AF.request(url).responseJSON { response in
+            
+            SwiftSpinner.hide()
+
+            if response.error == nil {
+                
+                let stockData: JSON = JSON(response.data!)
+                
+                guard let stocks = stockData.array else {return}
+                
+                if stocks.count == 0 {
+                    self.lblStockPrice.text = "Stock Symbol \(stockSymbol) does not exist"
+                }
+                                
+                for stock in stocks {
+                    self.lblStockPrice.text = "\(stock["symbol"].stringValue) : $\(stock["price"].floatValue)"
+                }
+                
+            }
+            else{
+                print(response.error?.localizedDescription ?? "Error")
+            }
+            
+        }
         
     }
     
