@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0D94B753541C9CA75FF6AB89 /* Pods_GetStockValues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF522BB4285CBA8BDA6C739 /* Pods_GetStockValues.framework */; };
+		75C5E8B525DCC2AF003E51E5 /* StocksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5E8B425DCC2AF003E51E5 /* StocksTableViewController.swift */; };
+		75C5E8B925DCC395003E51E5 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5E8B725DCC395003E51E5 /* StockTableViewCell.swift */; };
+		75C5E8BA25DCC395003E51E5 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C5E8B825DCC395003E51E5 /* StockTableViewCell.xib */; };
+		75C5E8BD25DCC4D5003E51E5 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5E8BC25DCC4D5003E51E5 /* Stock.swift */; };
 		75C7377625D39D5100D34E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7377525D39D5100D34E6A /* AppDelegate.swift */; };
 		75C7377825D39D5100D34E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7377725D39D5100D34E6A /* SceneDelegate.swift */; };
 		75C7377A25D39D5100D34E6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7377925D39D5100D34E6A /* ViewController.swift */; };
@@ -19,6 +23,10 @@
 
 /* Begin PBXFileReference section */
 		6FF522BB4285CBA8BDA6C739 /* Pods_GetStockValues.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetStockValues.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75C5E8B425DCC2AF003E51E5 /* StocksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksTableViewController.swift; sourceTree = "<group>"; };
+		75C5E8B725DCC395003E51E5 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
+		75C5E8B825DCC395003E51E5 /* StockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
+		75C5E8BC25DCC4D5003E51E5 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		75C7377225D39D5100D34E6A /* GetStockValues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetStockValues.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C7377525D39D5100D34E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75C7377725D39D5100D34E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +58,6 @@
 				97417789DE6CA8A5BEA67C33 /* Pods-GetStockValues.debug.xcconfig */,
 				C3566EA33B4430D0411E5726 /* Pods-GetStockValues.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +90,10 @@
 				75C7378025D39D5100D34E6A /* LaunchScreen.storyboard */,
 				75C7378325D39D5100D34E6A /* Info.plist */,
 				75C7378A25D39D8400D34E6A /* Constants.swift */,
+				75C5E8B425DCC2AF003E51E5 /* StocksTableViewController.swift */,
+				75C5E8B725DCC395003E51E5 /* StockTableViewCell.swift */,
+				75C5E8B825DCC395003E51E5 /* StockTableViewCell.xib */,
+				75C5E8BC25DCC4D5003E51E5 /* Stock.swift */,
 			);
 			path = GetStockValues;
 			sourceTree = "<group>";
@@ -156,6 +167,7 @@
 			files = (
 				75C7378225D39D5100D34E6A /* LaunchScreen.storyboard in Resources */,
 				75C7377F25D39D5100D34E6A /* Assets.xcassets in Resources */,
+				75C5E8BA25DCC395003E51E5 /* StockTableViewCell.xib in Resources */,
 				75C7377D25D39D5100D34E6A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,7 +223,10 @@
 			files = (
 				75C7377A25D39D5100D34E6A /* ViewController.swift in Sources */,
 				75C7377625D39D5100D34E6A /* AppDelegate.swift in Sources */,
+				75C5E8B525DCC2AF003E51E5 /* StocksTableViewController.swift in Sources */,
+				75C5E8BD25DCC4D5003E51E5 /* Stock.swift in Sources */,
 				75C7377825D39D5100D34E6A /* SceneDelegate.swift in Sources */,
+				75C5E8B925DCC395003E51E5 /* StockTableViewCell.swift in Sources */,
 				75C7378B25D39D8400D34E6A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
