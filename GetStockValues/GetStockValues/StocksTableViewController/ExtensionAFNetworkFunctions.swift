@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SwiftSpinner
 import RealmSwift
+import PromiseKit
 
 extension StocksTableViewController {
     
@@ -44,45 +45,24 @@ extension StocksTableViewController {
         // Get url for the symbol
         let url = getUrlForSymbol(symbol)
         
-        SwiftSpinner.show("Getting Stock Price")
+        getQuickShortQuote(url)
+        .done { (stocks) in
+            // If the stock symbol does not exist in NASDAQ
+            if stocks.count == 0 {
+                return
+            }
+            
+            self.addStockToDB(stocks[0])
+            self.symbolArr.append(stocks[0].symbol)
+
+            // Update all the values and refresh the data
+            self.getData();
+        }
+        .catch { (error) in
+            print(error)
+        }
         
-        AF.request(url).responseJSON { response in
-            
-           SwiftSpinner.hide()
-            
-            // If we get no error
-            if response.error == nil {
-                
-                // get the data and stocks JSON array
-                guard let data = response.data else {return}
-                guard let stocks = JSON(data).array else { return }
-                
-                // If the stock symbol does not exist in NASDAQ
-                if stocks.count == 0 {
-                    return
-                }
-                
-                
-                // There should be just one value (atleast one value)
-                let symbol = stocks[0]["symbol"].stringValue
-                let price = stocks[0]["price"].floatValue
-                let volume = stocks[0]["volume"].intValue
-     
-                
-                let stock = Stock()
-                stock.symbol = symbol
-                stock.price = price
-                stock.volume = volume
-                
-                self.addStockToDB(stock)
-                self.symbolArr.append(symbol)
-                
-                // Update all the values and refresh the data
-                self.getData();
-                
-            }// end of response.error == nil
-            
-        }// end of AF request
+        
         
     }
     
@@ -95,42 +75,18 @@ extension StocksTableViewController {
         
         let url = getUrl()
         
-        SwiftSpinner.show("Getting Stock Values")
-        
-        AF.request(url).responseJSON { response in
-            
-           SwiftSpinner.hide()
-            
-            if response.error == nil {
-                
-                guard let data = response.data else {return}
-                
-                guard let stocks = JSON(data).array else { return }
-                
-                if stocks.count == 0 {
-                    return
-                }
-                
+        getQuickShortQuote(url)
+            .done { (stocks) in
                 self.stockArr = [Stock]()
-                
                 for stock in stocks {
-                    
-                    let symbol = stock["symbol"].stringValue
-                    let price = stock["price"].floatValue
-                    let volume = stock["volume"].intValue
-                    
-                    let stock = Stock()
-                    stock.symbol = symbol
-                    stock.price = price
-                    stock.volume = volume
-
-
                     self.stockArr.append(stock)
                 }
                 self.updateValuesInDB(stocks: self.stockArr)
                 self.tblStocks.reloadData()
-            }// end of response.error == nil
-        }// end of AF request
+            }
+            .catch { (error) in
+                print("Error in getting all the stock values \(error)")
+            }
     }// end of function
     
     
@@ -139,4 +95,41 @@ extension StocksTableViewController {
         self.refreshControl?.endRefreshing()
     }
     
-}
+    
+    func getQuickShortQuote(_ url : String) -> Promise<[Stock]>{
+        
+        return Promise<[Stock]> { seal -> Void in
+            
+            SwiftSpinner.show("Getting Stock Price")
+            AF.request(url).responseJSON { response in
+                SwiftSpinner.hide()
+                if response.error == nil {
+        
+                    var arr  = [Stock]()
+                    guard let data = response.data else {return seal.fulfill( arr ) }
+                    guard let stocks = JSON(data).array else { return  seal.fulfill( arr ) }
+                    
+                    for stock in stocks {
+                        
+                        let symbol = stock["symbol"].stringValue
+                        let price = stock["price"].floatValue
+                        let volume = stock["volume"].intValue
+                        
+                        let stock = Stock()
+                        stock.symbol = symbol
+                        stock.price = price
+                        stock.volume = volume
+                        arr.append(stock)
+                    }
+                    
+                    seal.fulfill(arr)
+                }
+                else {
+                    seal.reject(response.error!)
+                }
+            }// end of AF request
+        }//End of Promise return
+    }// End of function
+    
+    
+}// end of class
