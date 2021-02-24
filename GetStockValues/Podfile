@@ -10,4 +10,6 @@ target 'GetStockValues' do
   pod 'SwiftyJSON', '~> 4.0'
   pod "SwiftSpinner"
   pod 'RealmSwift', '=10.1.4'
+  pod "PromiseKit", "~> 6.8"
+
 end

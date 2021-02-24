@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0D94B753541C9CA75FF6AB89 /* Pods_GetStockValues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF522BB4285CBA8BDA6C739 /* Pods_GetStockValues.framework */; };
+		7571E4F525E600DE00D13C4B /* ExtensionRealmFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571E4F425E600DE00D13C4B /* ExtensionRealmFunctions.swift */; };
+		7571E4F825E6016100D13C4B /* ExtensionTableViewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571E4F725E6016100D13C4B /* ExtensionTableViewFunctions.swift */; };
+		7571E4FC25E601EC00D13C4B /* ExtensionAFNetworkFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571E4FB25E601EC00D13C4B /* ExtensionAFNetworkFunctions.swift */; };
 		75C5E8B525DCC2AF003E51E5 /* StocksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5E8B425DCC2AF003E51E5 /* StocksTableViewController.swift */; };
 		75C5E8B925DCC395003E51E5 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5E8B725DCC395003E51E5 /* StockTableViewCell.swift */; };
 		75C5E8BA25DCC395003E51E5 /* StockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C5E8B825DCC395003E51E5 /* StockTableViewCell.xib */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		6FF522BB4285CBA8BDA6C739 /* Pods_GetStockValues.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetStockValues.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7571E4F425E600DE00D13C4B /* ExtensionRealmFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRealmFunctions.swift; sourceTree = "<group>"; };
+		7571E4F725E6016100D13C4B /* ExtensionTableViewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTableViewFunctions.swift; sourceTree = "<group>"; };
+		7571E4FB25E601EC00D13C4B /* ExtensionAFNetworkFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionAFNetworkFunctions.swift; sourceTree = "<group>"; };
 		75C5E8B425DCC2AF003E51E5 /* StocksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksTableViewController.swift; sourceTree = "<group>"; };
 		75C5E8B725DCC395003E51E5 /* StockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		75C5E8B825DCC395003E51E5 /* StockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockTableViewCell.xib; sourceTree = "<group>"; };
@@ -59,6 +65,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7571E4FE25E6047A00D13C4B /* StocksTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				75C5E8B425DCC2AF003E51E5 /* StocksTableViewController.swift */,
+				7571E4FB25E601EC00D13C4B /* ExtensionAFNetworkFunctions.swift */,
+				7571E4F725E6016100D13C4B /* ExtensionTableViewFunctions.swift */,
+				7571E4F425E600DE00D13C4B /* ExtensionRealmFunctions.swift */,
+			);
+			path = StocksTableViewController;
+			sourceTree = "<group>";
+		};
+		7571E50025E604C400D13C4B /* StocksTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				75C5E8B725DCC395003E51E5 /* StockTableViewCell.swift */,
+				75C5E8B825DCC395003E51E5 /* StockTableViewCell.xib */,
+			);
+			path = StocksTableViewCell;
+			sourceTree = "<group>";
+		};
 		75C7376925D39D5000D34E6A = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +106,8 @@
 		75C7377425D39D5100D34E6A /* GetStockValues */ = {
 			isa = PBXGroup;
 			children = (
+				7571E50025E604C400D13C4B /* StocksTableViewCell */,
+				7571E4FE25E6047A00D13C4B /* StocksTableViewController */,
 				75C7377525D39D5100D34E6A /* AppDelegate.swift */,
 				75C7377725D39D5100D34E6A /* SceneDelegate.swift */,
 				75C7377B25D39D5100D34E6A /* Main.storyboard */,
@@ -87,9 +115,6 @@
 				75C7378025D39D5100D34E6A /* LaunchScreen.storyboard */,
 				75C7378325D39D5100D34E6A /* Info.plist */,
 				75C7378A25D39D8400D34E6A /* Constants.swift */,
-				75C5E8B425DCC2AF003E51E5 /* StocksTableViewController.swift */,
-				75C5E8B725DCC395003E51E5 /* StockTableViewCell.swift */,
-				75C5E8B825DCC395003E51E5 /* StockTableViewCell.xib */,
 				75C5E8BC25DCC4D5003E51E5 /* Stock.swift */,
 			);
 			path = GetStockValues;
@@ -218,12 +243,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7571E4F525E600DE00D13C4B /* ExtensionRealmFunctions.swift in Sources */,
 				75C7377625D39D5100D34E6A /* AppDelegate.swift in Sources */,
+				7571E4F825E6016100D13C4B /* ExtensionTableViewFunctions.swift in Sources */,
 				75C5E8B525DCC2AF003E51E5 /* StocksTableViewController.swift in Sources */,
 				75C5E8BD25DCC4D5003E51E5 /* Stock.swift in Sources */,
 				75C7377825D39D5100D34E6A /* SceneDelegate.swift in Sources */,
 				75C5E8B925DCC395003E51E5 /* StockTableViewCell.swift in Sources */,
 				75C7378B25D39D8400D34E6A /* Constants.swift in Sources */,
+				7571E4FC25E601EC00D13C4B /* ExtensionAFNetworkFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
